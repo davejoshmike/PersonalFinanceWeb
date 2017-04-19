@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PersonalFinanceWebApp.Models
+namespace PersonalFinanceRestApi.Models
 {
     using System;
     using System.Collections.Generic;
@@ -16,8 +16,7 @@ namespace PersonalFinanceWebApp.Models
     {
         public decimal ID { get; set; }
         public decimal BRACKETLEVEL { get; set; }
-        public Nullable<decimal> RATE { get; set; }
-        public string FLAT { get; set; }
+        public decimal RATE { get; set; }
         public Nullable<decimal> BMIN { get; set; }
         public Nullable<decimal> BMAX { get; set; }
     

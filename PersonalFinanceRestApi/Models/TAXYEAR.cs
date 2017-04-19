@@ -7,26 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PersonalFinanceWebApp.Models
+namespace PersonalFinanceRestApi.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class INCOMETAX
+    public partial class TAXYEAR
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public INCOMETAX()
+        public TAXYEAR()
         {
-            this.INCOMETAXBRACKETs = new HashSet<INCOMETAXBRACKET>();
+            this.INCOMETAX = new HashSet<INCOMETAX>();
+            this.TAX = new HashSet<TAX>();
         }
     
-        public decimal ID { get; set; }
-        public string WHO { get; set; }
-        public string STATE { get; set; }
-        public string FILINGTYPE { get; set; }
-        public System.DateTime YEAR { get; set; }
+        public short YEAR { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INCOMETAXBRACKET> INCOMETAXBRACKETs { get; set; }
+        public virtual ICollection<INCOMETAX> INCOMETAX { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TAX> TAX { get; set; }
     }
 }

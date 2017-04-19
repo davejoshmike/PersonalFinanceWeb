@@ -7,16 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PersonalFinanceWebApp.Models
+namespace PersonalFinanceRestApi.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SAVING
+    public partial class WAGE
     {
         public decimal PERSONID { get; set; }
-        public Nullable<decimal> MONTHLYRATE { get; set; }
-        public Nullable<decimal> CAP { get; set; }
+        public Nullable<decimal> HOURLYWAGE { get; set; }
+        public Nullable<decimal> YEARLYWAGE { get; set; }
+        public Nullable<decimal> BONUS { get; set; }
     
         public virtual PERSON PERSON { get; set; }
     }

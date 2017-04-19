@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PersonalFinanceWebApp.Models
+namespace PersonalFinanceRestApi.Models
 {
     using System;
     using System.Collections.Generic;
@@ -18,8 +18,8 @@ namespace PersonalFinanceWebApp.Models
         public string WHO { get; set; }
         public string WHY { get; set; }
         public Nullable<decimal> RATE { get; set; }
-        public Nullable<System.DateTime> TAXYEAR { get; set; }
     
         public virtual PERSON PERSON { get; set; }
+        public virtual TAXYEAR TAXYEAR { get; set; }
     }
 }

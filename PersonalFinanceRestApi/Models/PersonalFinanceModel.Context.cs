@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PersonalFinanceWebApp.Models
+namespace PersonalFinanceRestApi.Models
 {
     using System;
     using System.Data.Entity;
@@ -25,12 +25,15 @@ namespace PersonalFinanceWebApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<INCOMETAX> INCOMETAXes { get; set; }
-        public virtual DbSet<INCOMETAXBRACKET> INCOMETAXBRACKETs { get; set; }
-        public virtual DbSet<LOAN> LOANs { get; set; }
-        public virtual DbSet<PERSON> People { get; set; }
-        public virtual DbSet<SAVING> SAVINGS { get; set; }
-        public virtual DbSet<TAX> TAXes { get; set; }
-        public virtual DbSet<WAGE> WAGEs { get; set; }
+        public virtual DbSet<INCOMETAX> INCOMETAX { get; set; }
+        public virtual DbSet<INCOMETAXBRACKET> INCOMETAXBRACKET { get; set; }
+        public virtual DbSet<LOAN> LOAN { get; set; }
+        public virtual DbSet<PERSON> PERSON { get; set; }
+        public virtual DbSet<SAVINGS> SAVINGS { get; set; }
+        public virtual DbSet<STATE> STATE { get; set; }
+        public virtual DbSet<TAX> TAX { get; set; }
+        public virtual DbSet<TAXYEAR> TAXYEAR { get; set; }
+        public virtual DbSet<WAGE> WAGE { get; set; }
+        public virtual DbSet<YEAR> YEAR { get; set; }
     }
 }

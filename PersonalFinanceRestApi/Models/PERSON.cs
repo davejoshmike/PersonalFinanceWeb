@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PersonalFinanceWebApp.Models
+namespace PersonalFinanceRestApi.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,13 +17,13 @@ namespace PersonalFinanceWebApp.Models
         public decimal ID { get; set; }
         public string FIRSTNAME { get; set; }
         public string LASTNAME { get; set; }
-        public string STATE { get; set; }
         public string CITY { get; set; }
         public string FILINGTYPE { get; set; }
     
         public virtual LOAN LOAN { get; set; }
+        public virtual STATE STATE { get; set; }
         public virtual TAX TAX { get; set; }
         public virtual WAGE WAGE { get; set; }
-        public virtual SAVING SAVING { get; set; }
+        public virtual SAVINGS SAVINGS { get; set; }
     }
 }

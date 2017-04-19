@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PersonalFinanceWebApp.Models
+namespace PersonalFinanceRestApi.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,8 +17,7 @@ namespace PersonalFinanceWebApp.Models
         public decimal PERSONID { get; set; }
         public string TYPE { get; set; }
         public string SUBSIDIZED { get; set; }
-        public decimal MONTHYRATE { get; set; }
-        public Nullable<decimal> TOTAL { get; set; }
+        public Nullable<decimal> MONTHLYRATE { get; set; }
     
         public virtual PERSON PERSON { get; set; }
     }
