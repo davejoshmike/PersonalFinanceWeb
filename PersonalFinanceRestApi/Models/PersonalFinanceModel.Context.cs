@@ -18,6 +18,7 @@ namespace PersonalFinanceRestApi.Models
         public PFContext()
             : base("name=PFContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

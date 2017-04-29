@@ -1,8 +1,15 @@
 ﻿
+using System;
+
 namespace PersonalFinanceRestApi.Models
 {
     public class OPerson
     {
+        public override string ToString()
+        {
+            return Id + Firstname + Lastname + City + FilingType + State;
+        }
+
         public OPerson(decimal id, string firstname, string lastname, string city, string filingType, string state)
         {
             Id = id;

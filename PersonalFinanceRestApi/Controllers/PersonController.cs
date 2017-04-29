@@ -16,16 +16,16 @@ namespace PersonalFinanceRestApi.Controllers
         private readonly PFContext db = new PFContext();    
 
         // GET: api/Person
-        [ResponseType(typeof(List<OPerson>))]
+        [ResponseType(typeof(List<PERSON>))]
         public async Task<IHttpActionResult> Get()
         {
-            var personList = new List<OPerson>();
-            await db.PERSON.ForEachAsync(person => personList.Add((OPerson)person));
+            var personList = new List<PERSON>();
+            await db.PERSON.ForEachAsync(person => personList.Add((PERSON)person));
             return Ok(personList);
         }
 
         // GET: api/Person/5
-        [ResponseType(typeof(OPerson))]
+        [ResponseType(typeof(PERSON))]
         public async Task<IHttpActionResult> Get(decimal id)
         {
             PERSON person = await db.PERSON.FindAsync(id);
@@ -34,7 +34,7 @@ namespace PersonalFinanceRestApi.Controllers
                 return NotFound();
             }
             
-            return Ok((OPerson)person);
+            return Ok(person);
         }
 
         // PUT: api/Person/5
@@ -102,7 +102,7 @@ namespace PersonalFinanceRestApi.Controllers
         }
 
         // DELETE: api/DELETE/5
-        [ResponseType(typeof(OPerson))]
+        [ResponseType(typeof(PERSON))]
         public async Task<IHttpActionResult> Delete(decimal id)
         {
             PERSON person = await db.PERSON.FindAsync(id);
@@ -113,7 +113,7 @@ namespace PersonalFinanceRestApi.Controllers
             db.PERSON.Remove(person);
             await db.SaveChangesAsync();
 
-            return Ok((OPerson)person);
+            return Ok((PERSON)person);
         }
 
         protected override void Dispose(bool disposing)

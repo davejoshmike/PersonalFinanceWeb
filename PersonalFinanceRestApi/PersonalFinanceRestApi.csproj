@@ -114,6 +114,7 @@
       <DependentUpon>PersonalFinanceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OPerson.cs" />
+    <Compile Include="Models\OTax.cs" />
     <Compile Include="Models\PERSON.cs">
       <DependentUpon>PersonalFinanceModel.tt</DependentUpon>
     </Compile>
