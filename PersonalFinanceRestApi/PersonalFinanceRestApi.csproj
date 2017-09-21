@@ -99,8 +99,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\IncomeTaxBracketController.cs" />
+    <Compile Include="Controllers\IncomeTaxController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
-    <Compile Include="Controllers\TaxController.cs" />
+    <Compile Include="Controllers\WageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

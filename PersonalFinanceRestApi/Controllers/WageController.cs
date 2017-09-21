@@ -10,48 +10,50 @@ using PersonalFinanceRestApi.Models;
 
 namespace PersonalFinanceRestApi.Controllers
 {
-    public class PersonController : ApiController
+    public class WageController : ApiController
     {
         // ReSharper disable once InconsistentNaming
-        private readonly PFContext db = new PFContext();    
+        private readonly PFContext db = new PFContext();
 
-        // GET: api/Person
-        [ResponseType(typeof(List<PERSON>))]
+        // GET: api/Wage
+        [ResponseType(typeof(List<WAGE>))]
         public async Task<IHttpActionResult> Get()
         {
-            var personList = new List<PERSON>();
-            await db.PERSON.ForEachAsync(person => personList.Add((PERSON)person));
-            return Ok(personList);
+            var wageList = new List<WAGE>();
+            await db.WAGE.ForEachAsync(wage => wageList.Add(wage));
+            return Ok(wageList);
         }
 
-        // GET: api/Person/5
-        [ResponseType(typeof(PERSON))]
-        public async Task<IHttpActionResult> Get(decimal id)
+        // GET: api/Wage/5
+        [ResponseType(typeof(WAGE))]
+        [Route("api/Wage/{personid}")]
+        public async Task<IHttpActionResult> Get(decimal personid)
         {
-            PERSON person = await db.PERSON.FindAsync(id);
-            if (person == null)
+            WAGE wage = await db.WAGE.FindAsync(personid);
+            if (wage == null)
             {
                 return NotFound();
             }
-            
-            return Ok(person);
+
+            return Ok(wage);
         }
 
-        // PUT: api/Person/5
+        // PUT: api/Wage/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> Put(decimal id, PERSON person)
+        [Route("api/Wage/{personid}")]
+        public async Task<IHttpActionResult> Put(decimal personid, WAGE wage)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != person.ID)
+            if (personid != wage.PERSONID)
             {
                 return BadRequest();
             }
 
-            db.Entry(person).State = EntityState.Modified;
+            db.Entry(wage).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +61,7 @@ namespace PersonalFinanceRestApi.Controllers
             }
             catch (DbUpdateException)
             {
-                if (!PersonExists(id))
+                if (!WageExists(personid))
                 {
                     return NotFound();
                 }
@@ -72,23 +74,23 @@ namespace PersonalFinanceRestApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Person
-        [ResponseType(typeof(PERSON))]
-        public async Task<IHttpActionResult> Post(PERSON person)
+        // POST: api/Wage
+        [ResponseType(typeof(WAGE))]
+        public async Task<IHttpActionResult> Post(WAGE wage)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.PERSON.Add(person);
+            db.WAGE.Add(wage);
             try
             {
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (PersonExists(person.ID))
+                if (WageExists(wage.PERSONID))
                 {
                     return Conflict();
                 }
@@ -98,22 +100,23 @@ namespace PersonalFinanceRestApi.Controllers
                 }
             }
 
-            return CreatedAtRoute("PersonalFinanceApi", new {id = person.ID }, person);
+            return CreatedAtRoute("PersonalFinanceApi", new { id = wage.PERSONID }, wage);
         }
 
-        // DELETE: api/Person/5
-        [ResponseType(typeof(PERSON))]
-        public async Task<IHttpActionResult> Delete(decimal id)
+        // DELETE: api/Wage/5
+        [ResponseType(typeof(WAGE))]
+        [Route("api/Wage/{personid}")]
+        public async Task<IHttpActionResult> Delete(decimal personid)
         {
-            PERSON person = await db.PERSON.FindAsync(id);
-            if (person == null)
+            WAGE wage = await db.WAGE.FindAsync(personid);
+            if (wage == null)
             {
                 return NotFound();
             }
-            db.PERSON.Remove(person);
+            db.WAGE.Remove(wage);
             await db.SaveChangesAsync();
 
-            return Ok((PERSON)person);
+            return Ok((WAGE)wage);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +128,9 @@ namespace PersonalFinanceRestApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool PersonExists(decimal id)
+        private bool WageExists(decimal personid)
         {
-            return db.PERSON.Count(e => e.ID == id) > 0;
+            return db.WAGE.Count(e => e.PERSONID == personid) > 0;
         }
     }
 }
